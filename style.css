@@ -9,30 +9,22 @@ body {
     text-align: center;
 }
 
-/* set flexbox row */
+
 .row {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+
   }  
 
 
 
 /* set flexbox columns to the left with 60% */
 .left-column {
-    display: flex;
-    flex-direction:column;
-    flex-basis: 100%;
     flex: 60;
 }
 
 
 /* set flexbox column to the right at 40% */
 .right-column {
-    display: flex;
-    flex-direction:column;
-    flex-basis: 100%;
     flex: 40;
 }
 
@@ -40,7 +32,7 @@ body {
 /* create class for tooltip attributes*/
 .tooltip {
   position: absolute;
-  background-color: grey;
+  background-color: white;
   border:  solid;
   border-width: 2px;
   border-radius: 5px;
@@ -50,8 +42,8 @@ body {
 
 /* class to add border to svg circles*/
 .bordered {
-    stroke: yellow;
-    stroke-width: 5px;
+    stroke: green;
+    
 }
 
 /* set color of scatter points + bar */
