@@ -60,7 +60,6 @@ d3.csv("data/scatter-data.csv").then((data) => {
     };
         
 
-    // function to add border + display coordinates
 
     const POINT_CLICK = d3.select("#information")
                             .append("div");
@@ -105,12 +104,12 @@ d3.csv("data/scatter-data.csv").then((data) => {
                 .attr("cy", (Y_SCALE(ycoord) + MARGINS.bottom))
                 .attr("r", 8)
                 .attr("class", "point")
-                .on("mouseover", hoverColor) 
-                .on("click", selectCoor)
-                .on("mouseleave", revertColor);  
+                .on("mouseover", changeColor) 
+                .on("click", clickPoint)
+                .on("mouseleave", normalColor);  
     };
 
-    //event listener for submit button
+    // create button
     d3.select("#create-pt")
     .on("click", addPoint); 
 
@@ -119,7 +118,7 @@ d3.csv("data/scatter-data.csv").then((data) => {
 
 
 
-// new frame for bar plot
+// bar plot frame
 const FRAME2= d3.select("#plot2") 
                   .append("svg") 
                     .attr("height", FRAME_HEIGHT)   
@@ -137,7 +136,7 @@ const FRAME2= d3.select("#plot2")
                           .domain([100, 0]) 
                           .range([0, VIS_HEIGHT]); 
 
-    // create x axis scale based on category names
+    // create x axis scale 
     const X_SCALE = d3.scaleBand() 
                                .domain(data.map((d) => { return d.category; })) 
                                .range([0, VIS_WIDTH])
@@ -161,7 +160,7 @@ const FRAME2= d3.select("#plot2")
        FRAME2.append("g") 
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
-          .call(d3.axisBottom(CATEGORY_SCALE))
+          .call(d3.axisBottom(X_SCALE))
           .attr("font-size", '20px'); 
 
 
@@ -169,7 +168,7 @@ const FRAME2= d3.select("#plot2")
       FRAME2.append("g") 
             .attr("transform", "translate(" + (MARGINS.left) + 
                   "," + (MARGINS.top) + ")") 
-            .call(d3.axisLeft(AMT_SCALE).ticks(10)) 
+            .call(d3.axisLeft(Y_SCALE).ticks(10)) 
             .attr("font-size", '20px'); 
 
 
@@ -180,7 +179,7 @@ const FRAME2= d3.select("#plot2")
                           .style("opacity", 0); 
 
 
-    // Define event handler functions for tooltips/hovering
+    
     function handleMouseover(event, d) {
       // change color of bar when mouse is over it
       d3.select(this)
