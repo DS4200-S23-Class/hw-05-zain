@@ -85,14 +85,14 @@ d3.csv("data/scatter-data.csv").then((data) => {
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
           .call(d3.axisBottom(X_SCALE).ticks(10)) 
-          .attr("font-size", '20px'); 
+           
 
     // append y axis to frame
     FRAME1.append("g") 
           .attr("transform", "translate(" + (MARGINS.left) + 
                 "," + (MARGINS.top) + ")") 
           .call(d3.axisLeft(Y_SCALE).ticks(10)) 
-          .attr("font-size", '20px'); 
+           
 
 
     function addPoint(){
@@ -161,7 +161,7 @@ const FRAME2= d3.select("#plot2")
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
           .call(d3.axisBottom(X_SCALE))
-          .attr("font-size", '20px'); 
+          
 
 
     // append y axis to frame
@@ -169,7 +169,7 @@ const FRAME2= d3.select("#plot2")
             .attr("transform", "translate(" + (MARGINS.left) + 
                   "," + (MARGINS.top) + ")") 
             .call(d3.axisLeft(Y_SCALE).ticks(10)) 
-            .attr("font-size", '20px'); 
+            
 
 
     // adding a tooltip
