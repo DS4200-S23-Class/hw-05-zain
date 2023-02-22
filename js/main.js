@@ -73,28 +73,28 @@ d3.csv("data/scatter-data.csv").then((data) => {
     };
 
 
-        // Add event listeners
+    // Add event listeners
     FRAME1.selectAll(".point")
           .on("mouseover", changeColor) 
           .on("click", clickPoint)
           .on("mouseleave", normalColor);    
 
 
-    // add x axis
+    // append x axis to frame
     FRAME1.append("g") 
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
           .call(d3.axisBottom(X_SCALE).ticks(10)) 
           .attr("font-size", '20px'); 
 
-    // add y axis
+    // append y axis to frame
     FRAME1.append("g") 
           .attr("transform", "translate(" + (MARGINS.left) + 
                 "," + (MARGINS.top) + ")") 
           .call(d3.axisLeft(Y_SCALE).ticks(10)) 
           .attr("font-size", '20px'); 
 
-    // function to add point
+
     function addPoint(){
         const xcoord = d3.select("#x-coord").property("value");
         const ycoord = d3.select("#y-coord").property("value");
