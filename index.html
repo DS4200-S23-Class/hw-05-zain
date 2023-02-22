@@ -1,45 +1,52 @@
-
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html> 
 
 <head>
     <meta charset=utf-8/>
 
-    <!--creating link to style sheet-->
-    <link rel="stylesheet", href="style.css">
-
-    <!--titling website-->
+    <!-- Link stylesheet -->
+    <link rel="stylesheet" href="style.css">
     <title>hw-05</title>
-
-     <!-- Include D3 library in head -->
+    <!-- Include D3 library in head -->
+    <!-- Note: we use D3 v6 -->
     <script src='js/d3.v6.1.1/d3.min.js'></script>
 
 </head>
 
+
 <body>
 
-    <!-- Making the Header -->
+    <!--Header -->
     <h1 class="centered">hw-05: Interactive Graph with D3</h1>
 
-    <!--div for flexbox row-->
-    <div class = "row">
 
-        <!--div for scatter plot-->
-        <div class = "left-column" id="vis1"></div>
+    <div class="row">
+        <div class="left-column" id="plot1">
 
-        <!--right column with scatter info-->
-        <div class= "right-column" id = "point-info">
+            <!--create svg frame w/ proper axis + points -->
+            <svg id="frame">
+                <line id="line" x1="0" y1="500" x2="0" y2="0"/>
+                <line id="line" x1="0" y1="500" x2="550" y2="500"/>
+                <circle id="point" cx="50" cy="400" r="15"/>
+                <circle id="point" cx="100" cy="300" r="15"/>
+                <circle id="point" cx="300" cy="400" r="15"/>
+                <circle id="point" cx="450" cy="50" r="15"/>
 
-            <!--paragraph place holder for selected coordinates to appear-->
-            <p id = "select-coor"></p>
+            </svg>
+        </div>
 
-            <h4> Create a New Point by Selecting Coordinates </h4>
+        <!--right column-->
+        <div class="right-column" id="information">
 
-            <!--form with two dropdowns controlling x and y coordinates-->
-            <form id ='frm-new-pt'>
+            <p id = "click-point"></p>
 
-              <label>Select X-Value:</label>
-              <input list = "x" id="xVal">
+            <h4> Choose Coordiantes for New Circle </h4>
+
+            <!--dropdowns for x and y coordinates-->
+            <form id ='show-pt'>
+
+              <label>Select X Coordinate:</label>
+              <input list = "x" id="x-coord">
               <datalist id="x">
                 <option value="1">
                 <option value="2">
@@ -49,13 +56,13 @@
                 <option value="6">
                 <option value="7">
                 <option value="8">
-                <option value="9">
+                <option value="9">s
               </datalist>
 
               <br>
 
-              <label>Select Y-Value:</label>
-              <input list = "y" id = "yVal">
+              <label>Select Y Coordinate:</label>
+              <input list = "y" id = "y-coord">
               <datalist id="y">
                 <option value="1">
                 <option value="2">
@@ -65,13 +72,13 @@
                 <option value="6">
                 <option value="7">
                 <option value="8">
-                <option value="9">
+                <option value="9">s
               </datalist>
         
             </form>
 
-            <!--create submit button for form-->
-            <button type="button" id="coorButton">Submit</button>
+            <!--create button-->
+            <button type="button" onClick = "addPoint()" id="create-pt">Create</button>
 
         </div>
     </div>
@@ -80,25 +87,27 @@
     <div class = "row">
 
         <!--div for bar plot-->
-        <div class = "left-column" id = "vis2"></div>
+        <div class = "left-column" id = "plot2"></div>
     </div>
 
-    <!--set header for acknowledgements + bulleted list sources-->
-    <h2 class = 'centered'>Acknowledgements</h2>
-    <div>
-        <ul>
-          <li>https://d3-graph-gallery.com/graph/barplot_basic.html</li>
-          <li>https://www.tutorialspoint.com/d3js/d3js_selections.html</li>
-          <li>https://jaketrent.com/post/d3-class-operations/</li>
-          <li>https://www.d3indepth.com/scales/</li>
-          <li>https://stackoverflow.com/questions/18883675/d3-js-get-value-of-selected-option</li>
-          <li>https://stackoverflow.com/questions/41651480/get-the-value-of-attribute-transform-of-svg-element-use-with-jquery-attr</li>
-        </ul>
 
+<br>
 
-    <!--call javacript file-->
-    <script src = "js/main.js"></script>
+<!--acknowledgements-->
+<h2 class = 'centered'>Acknowledgements</h2>
+<div>
+    <ul>
+      <li>https://dev.to/tqbit/how-to-create-svg-elements-with-javascript-4mmp"</li>
+      <li>https://www.w3schools.com/js/js_input_examples.asp</li>
+      <li>https://www.w3schools.com/js/js_htmldom_eventlistener.asp</li>
+      <li>https://www.geeksforgeeks.org/html-introduction/?ref=lbp</li>
+      <li>http://www.w3.org/2000/svg</li>
+      <li>https://www.w3schools.com/graphics/svg_intro.asp</li>
+    </ul>
+</div>
 
+<!--call javascript file-->
+<script src = "js/main.js"></script>
 
 </body>
 
