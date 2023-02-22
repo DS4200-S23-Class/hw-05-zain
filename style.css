@@ -50,15 +50,15 @@ body {
 
 /* class to add border to svg circles*/
 .bordered {
-    stroke: green;
+    stroke: yellow;
     stroke-width: 5px;
 }
 
 /* set color of scatter points + bar */
 .point {
-  fill: seagreen;
+  fill: darkred;
 }
 
 .bar {
-    fill: seagreen;
+    fill: darkred;
 }
