@@ -6,13 +6,11 @@
 const FRAME_HEIGHT = 500;
 const FRAME_WIDTH = 500; 
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
-
 const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.top - MARGINS.bottom;
 const VIS_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right; 
 
 
-//  creating scatter plot
-// frame to append svgs to 
+// create frame for scatter plot
 const FRAME1 = d3.select("#plot1") 
                   .append("svg") 
                     .attr("height", FRAME_HEIGHT)   
@@ -20,7 +18,7 @@ const FRAME1 = d3.select("#plot1")
                     .attr("class", "frame"); 
 
 
-// read in scatter data
+// read data for scatter plot
 d3.csv("data/scatter-data.csv").then((data) => { 
 
     
